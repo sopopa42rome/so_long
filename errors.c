@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/13 13:31:22 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/13 13:33:09 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error_file_extension_wrong(void)
     ft_putstr_fd("Error:\nFile extension wrong!", 2);
     exit(FILE_EXTENSION_WRONG);
 }
-
+aaa
 void	error_bad_arguments(void)
 {
     ft_putstr_fd("Error:\nWrong number of arguments!", 2);
