@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/12 20:36:49 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/13 13:17:16 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+// Num error define
 # define FILE_EXTENSION_WRONG 3
 # define BAD_NUMBER_ARGS 4
 # define FILE_EMPTY 5
