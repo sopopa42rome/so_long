@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/12 20:36:58 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/13 13:31:22 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	error_player_inexistent(void)
     ft_putstr_fd("Error:\nThe player is inexistent!\n", 2);
     exit(NO_PLAYER);
 }
+
+
+ciao
 
 void	error_collectible_inexistent(void)
 {
