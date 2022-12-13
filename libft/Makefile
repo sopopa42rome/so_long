@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+         #
+#    By: sorin <sorin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 17:05:02 by sopopa            #+#    #+#              #
-#    Updated: 2022/03/08 20:05:16 by sopopa           ###   ########.fr        #
+#    Updated: 2022/12/12 18:01:39 by sorin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS = ft_isalnum.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c 
 
-FLAGS = -Wall -Werror -Wextra -c
+FLAGS = -Wall -Werror -Wextra
 CC = gcc
 OBJS = $(SRCS:.c=.o)
 BONUS = ft_lstnew.c \
@@ -62,8 +62,9 @@ BONUS = ft_lstnew.c \
 OBJS_BONUS = $(BONUS:.c=.o)
 
 $(NAME):
-	$(CC) $(FLAGS) $(SRCS)
+	$(CC) -c $(FLAGS) $(SRCS)
 	ar rcs libft.a $(OBJS)
+	rm *.o
 all: $(NAME)
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)

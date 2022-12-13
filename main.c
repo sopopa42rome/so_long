@@ -6,19 +6,24 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/11 17:44:01 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/12 19:11:14 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main (void)
+int main (int argc, char **argv)
 {
-	// if (argc )
-	// 	return (error_bad_arguments());
 	game_vars *game;
-	game = initialize_game("./maps/map0.ber");
-	return 0;
 
 	
+
+	if (argc != 2)
+		error_bad_arguments();
+	game = initialize_game(argv[1]);
+
+	game->mlx = mlx_init();
+	game->mlx_win = mlx_new_window(game->mlx, 800, 600, "Chopper's Adventure");
+	(void)(game->mlx_win);
+	return (0);
 }
