@@ -4,11 +4,11 @@ LIBFT = ./libft
 
 LIBFT_LIB = libft.a
 
-SRCS = main.c \
-	errors.c \
-	initialize_map.c \
-	checks_structure.c \
-	check_elements.c \
+SRCS = ./source/main.c \
+	./source/errors.c \
+	./source/initialize_map.c \
+	./source/checks_structure.c \
+	./source/check_elements.c \
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -24,10 +24,10 @@ MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 
 $(NAME): $(OBJS)
-	@make re -C $(LIBFT)/
-	@make all -C ./get_next_line/
-	@cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
-	@cp ./get_next_line/get_next_line.a $(NAME)
+	make re -C $(LIBFT)/
+	make re -C ./get_next_line/
+	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	cp ./get_next_line/get_next_line.a $(NAME)
 	gcc $(MLXFLAGS) $(NAME) $(SRCS) $(NAME)
 
 

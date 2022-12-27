@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 00:26:11 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 00:36:58 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 
 
-#include "./mlx_linux/mlx.h"
-#include "./libft/libft.h"
-#include "./get_next_line/get_next_line.h"
+#include "../mlx_linux/mlx.h"
+#include "../libft/libft.h"
+#include "../get_next_line/get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>

@@ -6,12 +6,11 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 00:24:54 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 00:30:06 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "./libft/libft.h"
 
 
 void	error_file_extension_wrong(void)
