@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/12 20:42:34 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/27 18:47:03 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,23 @@ int read_and_init_map(char *pathfile, game_vars *game)
 	int rows;
 	
 	fd = open(pathfile, O_RDONLY);
+	if (fd < 0)
+		error_map_not_found();
 	rows = count_rows(fd);
 	if (rows == 0)
-		error_empty_map()
-	game->map_matrix malloc(sizeof(char *) * rows);
+		error_empty_map();
+	game->map_matrix = malloc(sizeof(char *) * rows);
+	close(fd);
+	fd = open(pathfile, O_RDONLY);
+	i = -1;
+	while (i++ < rows && game->map_matrix)
+		game->map_matrix[i] = get_next_line(fd);
+	close(fd);
+	game->height = rows;
+	if (game->map_matrix)
+		game->width = ft_strlen(game->map_matrix[i]) - 1;
+	if (!game->map_matrix || !ft_check_errors(game))
 		
-	
-	
 	return (1);
 }
 

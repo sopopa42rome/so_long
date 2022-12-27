@@ -7,7 +7,8 @@ LIBFT_LIB = libft.a
 SRCS = main.c \
 	errors.c \
 	initialize_map.c \
-	checks.c \
+	checks_structure.c \
+	check_elements.c
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -16,6 +17,7 @@ CC		= gcc
 FLAGS	= -Wall -Wextra -Werror
 INCS	= ./
 MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+#MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -Imlx_linux -O3 -c $< -o $@
