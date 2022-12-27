@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/27 18:47:03 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:51:11 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int read_and_init_map(char *pathfile, game_vars *game)
 	if (game->map_matrix)
 		game->width = ft_strlen(game->map_matrix[i]) - 1;
 	if (!game->map_matrix || !ft_check_errors(game))
-		
+		return (0);
 	return (1);
 }
 

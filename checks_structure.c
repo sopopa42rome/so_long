@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks_structure.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/27 18:42:55 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:54:59 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_check_width(game_vars *game)
 		return (0); 
 	while (i < game->height)
 	{
-		if (ft_strlen(game->map_matrix[i]) - 1 != game->width)
+		if (ft_strlen(game->map_matrix[i]) - 1 != (size_t)game->width)
 			return (0);
 		i++;
 	}
@@ -50,7 +50,7 @@ int		ft_check_walls(game_vars *game)
 	{
 		if (rows == 0 || rows == game->height)
 		{
-			while (cols <= game->width)
+			while (cols < game->width)
 			{
 				if (game->map_matrix[rows][cols] != '1')
 					return (0);

@@ -8,7 +8,7 @@ SRCS = main.c \
 	errors.c \
 	initialize_map.c \
 	checks_structure.c \
-	check_elements.c
+	check_elements.c \
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -24,11 +24,11 @@ MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 
 $(NAME): $(OBJS)
-	make re -C $(LIBFT)/
-	make all -C ./get_next_line/
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
-	cp ./get_next_line/get_next_line.a $(NAME)
-	gcc $(OBJS) $(MLXFLAGS) $(NAME) $(SRCS) $(NAME)
+	@make re -C $(LIBFT)/
+	@make all -C ./get_next_line/
+	@cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	@cp ./get_next_line/get_next_line.a $(NAME)
+	gcc $(MLXFLAGS) $(NAME) $(SRCS) $(NAME)
 
 
 

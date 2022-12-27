@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/27 18:45:30 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:26:11 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,13 @@
 typedef struct game{
     char	**map_matrix;
     int		height;
-	size_t	width;
+	int		width;
 	int		x;
 	int		y;
 	char	*pathfile;
 	void	*mlx;
 	void	*mlx_win;
 	char	**line;
-
-
 }	game_vars;
 
 game_vars	*initialize_game(char *pathfile);
@@ -59,6 +57,7 @@ int		ft_check_walls(game_vars *game);
 int		ft_check_width(game_vars *game);
 int     ft_check_player(game_vars *game);
 int     ft_check_collectible(game_vars *game);
+int		ft_check_exit(game_vars *game);
 // errors
 void	error_file_extension_wrong(void);
 void	error_bad_arguments(void);

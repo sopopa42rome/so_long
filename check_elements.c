@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:34:20 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/27 18:44:08 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:56:16 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int     ft_check_exit(game_vars *game)
         }
         r++;
     }
-    if (exit = 1)
+    if (exit == 1)
         return (1);
     else
         return (0);
@@ -89,7 +89,7 @@ int     ft_check_collectible(game_vars *game)
         }
         r++;
     }
-    if (collect => 1)
+    if (collect > 0)
         return (1);
     else
         return (0);
