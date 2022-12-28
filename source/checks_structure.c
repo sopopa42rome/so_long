@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 18:05:58 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 18:09:35 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_check_width(game_vars *game)
 	i = 0;
 	if (!game && !game->map_matrix)
 		return (0); 
-	while (i < game->height - 1)
+	while (i < game->height)
 	{
 		len = ft_strlen(game->map_matrix[i]);
 		len2 = game->width;
@@ -51,7 +51,7 @@ int		ft_check_walls(game_vars *game)
 
 	rows = 0;
 	cols = 0;
-	while (rows < game->height - 1)
+	while (rows < game->height)
 	{
 		if (rows == 0 || rows == game->height - 1)
 		{

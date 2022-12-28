@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 17:17:38 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 18:09:11 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int read_and_init_map(char *pathfile, game_vars *game)
 	while (++i < rows && game->map_matrix)
 		game->map_matrix[i] = get_next_line(fd);
 	close(fd);
-	game->height = rows;
+	game->height = rows - 1;
 	if (game->map_matrix)
 		game->width = ft_strlen(game->map_matrix[i - 1]);
 	if (!game->map_matrix || !ft_check_errors(game))

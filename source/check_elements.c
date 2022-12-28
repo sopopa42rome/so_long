@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:34:20 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/27 23:56:16 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 19:28:19 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int     ft_check_player(game_vars *game)
     int c;
     int player;
 
-    r = 0;
-    c = 0;
     player = 0;
+    r = 0;
     while (r < game->height)
     {
-        while(c <= game->width)
+        c = 0;
+        while(c < game->width - 1)
         {
             if (game->map_matrix[r][c] == 'P')
             {
@@ -46,18 +46,16 @@ int     ft_check_exit(game_vars *game)
     int r;
     int c;
     int exit;
-
-    r = 0;
-    c = 0;
+    
     exit = 0;
+    r = 0;
     while (r < game->height)
     {
+        c = 0;
         while(c <= game->width)
         {
             if (game->map_matrix[r][c] == 'C')
-            {
-                exit++; 
-            }
+                exit++;
             c++;
         }
         r++;
@@ -75,10 +73,10 @@ int     ft_check_collectible(game_vars *game)
     int collect;
 
     r = 0;
-    c = 0;
     collect = 0;
     while (r < game->height)
     {
+        c = 0;
         while(c <= game->width)
         {
             if (game->map_matrix[r][c] == 'C')
