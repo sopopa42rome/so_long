@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:45 by sopopa            #+#    #+#             */
-/*   Updated: 2022/08/24 23:20:55 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:01:20 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "../libft/libft.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif

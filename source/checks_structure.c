@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks_structure.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/27 23:54:59 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 17:55:28 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,20 @@ int		check_extension_file(char *pathfile)
 int		ft_check_width(game_vars *game)
 {
 	int i;
+	size_t len;
+	size_t len2;
 
 	i = 0;
 	if (!game && !game->map_matrix)
 		return (0); 
-	while (i < game->height)
+	while (i < game->height - 1)
 	{
+		len = ft_strlen(game->map_matrix[i]);
+		len2 = game->width;
 		if (ft_strlen(game->map_matrix[i]) - 1 != (size_t)game->width)
 			return (0);
-		i++;
+		else
+			i++;
 	}
 	return (1);
 }
@@ -46,9 +51,9 @@ int		ft_check_walls(game_vars *game)
 
 	rows = 0;
 	cols = 0;
-	while (rows < game->height)
+	while (rows < game->height - 1)
 	{
-		if (rows == 0 || rows == game->height)
+		if (rows == 0 || rows == game->height - 1)
 		{
 			while (cols < game->width)
 			{

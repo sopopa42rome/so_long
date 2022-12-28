@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/27 23:51:11 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 17:17:38 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int read_and_init_map(char *pathfile, game_vars *game)
 	close(fd);
 	fd = open(pathfile, O_RDONLY);
 	i = -1;
-	while (i++ < rows && game->map_matrix)
+	while (++i < rows && game->map_matrix)
 		game->map_matrix[i] = get_next_line(fd);
 	close(fd);
 	game->height = rows;
 	if (game->map_matrix)
-		game->width = ft_strlen(game->map_matrix[i]) - 1;
+		game->width = ft_strlen(game->map_matrix[i - 1]);
 	if (!game->map_matrix || !ft_check_errors(game))
-		return (0);
+		ft_free(&game);
 	return (1);
 }
 
@@ -67,6 +67,20 @@ int	count_rows(int fd)
 	return (i);
 }
 
+int		ft_free(game_vars **game)
+{	
+	int	i;
+
+	i = -1;
+	if (!game || !(*game))
+		return (0);
+	while (++i < (*game)->height)
+		free((*game)->map_matrix[i]);
+	free((*game)->map_matrix);
+	free(*game);
+	*game = NULL;
+	return (0);
+}
 
 
 

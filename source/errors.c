@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 00:30:06 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 16:13:03 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 void	error_file_extension_wrong(void)
 {
-    ft_putstr_fd("Error:\nFile extension wrong!", 2);
+    ft_putstr_fd("Error:\nFile extension wrong!\n", 2);
     exit(FILE_EXTENSION_WRONG);
 }
 
 void	error_bad_arguments(void)
 {
-    ft_putstr_fd("Error:\nWrong number of arguments!", 2);
+    ft_putstr_fd("Error:\nWrong number of arguments!\n", 2);
     exit(BAD_NUMBER_ARGS);
 }
 

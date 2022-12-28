@@ -6,44 +6,44 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:09:01 by sopopa            #+#    #+#             */
-/*   Updated: 2022/08/21 22:06:24 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:00:51 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *str, int c)
-{
-	int	i;
+// char	*ft_strchr(const char *str, int c)
+// {
+// 	int	i;
 
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-		{
-			return ((char *)(str + i));
-		}
-		i++;
-	}
-	if (str[i] == c)
-	{
-		return ((char *)(str + i));
-	}
-	return (NULL);
-}
+// 	if (!str)
+// 		return (NULL);
+// 	i = 0;
+// 	while (str[i] != '\0')
+// 	{
+// 		if (str[i] == c)
+// 		{
+// 			return ((char *)(str + i));
+// 		}
+// 		i++;
+// 	}
+// 	if (str[i] == c)
+// 	{
+// 		return ((char *)(str + i));
+// 	}
+// 	return (NULL);
+// }
 
-void	*ft_calloc(size_t num_elements, size_t size)
-{
-	void	*ptr;
+// void	*ft_calloc(size_t num_elements, size_t size)
+// {
+// 	void	*ptr;
 
-	ptr = malloc(num_elements * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, (num_elements * size));
-	return (ptr);
-}
+// 	ptr = malloc(num_elements * size);
+// 	if (!ptr)
+// 		return (NULL);
+// 	ft_bzero(ptr, (num_elements * size));
+// 	return (ptr);
+// }
 
 void	ft_bzero(void *str, size_t len)
 {
@@ -60,19 +60,19 @@ void	ft_bzero(void *str, size_t len)
 	str = conv;
 }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	len;
 
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
-}
+// 	if (!str)
+// 		return (0);
+// 	len = 0;
+// 	while (str[len] != '\0')
+// 	{
+// 		len++;
+// 	}
+// 	return (len);
+// }
 
 char	*ft_strjoin(char *s1, char *s2)
 {

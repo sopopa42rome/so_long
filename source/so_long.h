@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 00:36:58 by sorin            ###   ########.fr       */
+/*   Updated: 2022/12/28 16:47:56 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 // Num error define
 # define FILE_EXTENSION_WRONG 3
@@ -48,7 +49,8 @@ typedef struct game{
 
 game_vars	*initialize_game(char *pathfile);
 int			read_and_init_map(char *pathfile, game_vars *game);
-int		count_rows(int fd);
+int			count_rows(int fd);
+int			ft_free(game_vars **game);
 
 //checks
 int		check_extension_file(char *pathfile);
