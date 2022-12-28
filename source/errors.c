@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 16:13:03 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 19:33:32 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void	error_exit_inexistent(void)
 
 void    error_map_not_found(void)
 {
-    ft_putstr_fd("Error:\nFile not found!", 2);
+    ft_putstr_fd("Error:\nFile not found!\n", 2);
     exit(FILE_NOT_FOUND);
 }
 
 void    error_program_null(void)
 {
-    ft_putstr_fd("Error:\nLack of parameters!", 2);
+    ft_putstr_fd("Error:\nLack of parameters!\n", 2);
     exit(GAME_NULL);
 }
