@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 17:55:28 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 18:05:58 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_check_walls(game_vars *game)
 		rows++;
 		if (game->map_matrix[rows][0] != '1')
 			return (0);
-		if (game->map_matrix[rows][game->width] != '1')
+		if (game->map_matrix[rows][game->width - 1] != '1')
 			return (0);
 	}
 	return (1);
