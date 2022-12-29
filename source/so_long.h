@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/29 16:17:52 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/29 23:07:30 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define GAME_NULL 12
 
 // Generic values and paths
-# define PIXEL_SIZE 
+# define PIXEL_SIZE 32
 
 typedef struct game{
     char	**map_matrix;
@@ -55,7 +55,7 @@ int			read_and_init_map(char *pathfile, game_vars *game);
 int			count_rows(int fd);
 int			ft_free(game_vars **game);
 
-//checks
+//checks map structure
 int		check_extension_file(char *pathfile);
 int		ft_check_errors(game_vars *game);
 int		ft_check_walls(game_vars *game);
@@ -63,6 +63,7 @@ int		ft_check_width(game_vars *game);
 int     ft_check_player(game_vars *game);
 int     ft_check_collectible(game_vars *game);
 int		ft_check_exit(game_vars *game);
+
 // errors
 void	error_file_extension_wrong(void);
 void	error_bad_arguments(void);

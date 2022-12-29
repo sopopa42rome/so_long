@@ -17,11 +17,11 @@ LIBC	= ar -rcs
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror
 INCS	= ./
-#MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+#MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(FLAGS) -Imlx_linux -O3 -c $< -o $@
 
 
 $(NAME): $(OBJS)
@@ -29,8 +29,7 @@ $(NAME): $(OBJS)
 	make re -C ./get_next_line/
 # cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 # cp ./get_next_line/get_next_line.a $(NAME)
-	gcc -g $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a $(SRCS) -o $(NAME)
-	rm ./source/*.o
+	gcc -g $(MLXFLAGS) $(SRCS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a $(NAME)
 
 
 

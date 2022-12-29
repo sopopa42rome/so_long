@@ -6,7 +6,7 @@
 #    By: sorin <sorin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/09 19:08:50 by sopopa            #+#    #+#              #
-#    Updated: 2022/12/12 18:11:14 by sorin            ###   ########.fr        #
+#    Updated: 2022/12/29 23:39:49 by sorin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJS_BONUS = $(BONUS:.c=.o)
 
 $(NAME):
 	$(CC) -c $(FLAGS) $(SRCS)
-	ar rcs get_next_line.a $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 	rm *.o
 
 all: $(NAME)

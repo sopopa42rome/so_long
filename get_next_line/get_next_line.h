@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:45 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/28 16:01:20 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/29 23:43:15 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # endif
 
 char	*ft_strchr(const char *str, int c);
-void	*ft_calloc(size_t num_elements, size_t size);
-void	ft_bzero(void *str, size_t len);
+// void	*ft_calloc(size_t num_elements, size_t size);
+void    ft_bzero(void *str, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
