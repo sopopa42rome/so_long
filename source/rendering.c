@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 15:55:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/29 16:17:52 by sopopa           ###   ########.fr       */
+/*   Created: 2022/12/29 19:30:36 by sopopa            #+#    #+#             */
+/*   Updated: 2022/12/29 19:34:42 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main (int argc, char **argv)
+void    draw_and_render(game_vars *game)
 {
-	game_vars *game;
-
-	if (argc <= 1)
-		error_bad_arguments();
-	game = initialize_game(argv[1]);
-	if (!game || !game->map_matrix)
-		error_program_null();
-	game->mlx = mlx_init();
-	height = game->height * PIXEL_SIZE;
-	game->mlx_win = 
-
-	return (0);
+    mlx_xpm_file_to_image
 }

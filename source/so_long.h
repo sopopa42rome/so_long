@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 16:47:56 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/29 16:17:52 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define FILE_NOT_FOUND 10
 # define NO_WALLS 11
 # define GAME_NULL 12
+
+// Generic values and paths
+# define PIXEL_SIZE 
 
 typedef struct game{
     char	**map_matrix;

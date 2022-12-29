@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:34:20 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/28 19:28:19 by sopopa           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:12:53 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,14 @@ int     ft_check_exit(game_vars *game)
         while(c <= game->width)
         {
             if (game->map_matrix[r][c] == 'C')
+            {
                 exit++;
+            }
             c++;
         }
         r++;
     }
-    if (exit == 1)
+    if (exit >= 1)
         return (1);
     else
         return (0);

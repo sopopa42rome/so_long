@@ -6,6 +6,7 @@ LIBFT_LIB = libft.a
 
 SRCS = ./source/main.c \
 	./source/errors.c \
+	./source/errors2.c \
 	./source/initialize_map.c \
 	./source/checks_structure.c \
 	./source/check_elements.c \
