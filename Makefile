@@ -27,11 +27,12 @@ MLXFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 $(NAME): $(OBJS)
 	make re -C $(LIBFT)/
 	make re -C ./get_next_line/
-# cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
-# cp ./get_next_line/get_next_line.a $(NAME)
-	gcc -g $(MLXFLAGS) $(SRCS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a $(NAME)
-
-
+	make re -C ./mlx_linux
+	gcc -c $(MLXFLAGS) $(SRCS)
+	ar rcs ./source/so_long.a $(OBJS)
+	gcc ./source/so_long.a ./get_next_line/get_next_line.a $(LIBFT)/$(LIBFT_LIB)
+	mv a.out $(NAME)
+	rm ../so_long/*.o
 
 all: $(NAME)
     
@@ -39,7 +40,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) ./source/so_long.a $(OBJS)
 	
 re: fclean all
 
