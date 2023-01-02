@@ -6,7 +6,7 @@
 #    By: sorin <sorin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 17:05:02 by sopopa            #+#    #+#              #
-#    Updated: 2022/12/28 00:47:13 by sorin            ###   ########.fr        #
+#    Updated: 2023/01/02 22:20:43 by sorin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ SRCS = ft_isalnum.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c 
+	ft_putnbr_fd.c \
+	get_next_line.c \
+	get_next_line_utils.c \
 
 FLAGS = -Wall -Werror -Wextra
 CC = gcc

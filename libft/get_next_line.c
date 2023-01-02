@@ -6,12 +6,11 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:58 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/02 20:47:05 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/02 22:30:36 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../libft/libft.h"
 
 char	*read_and_save(int fd, char *res)
 {
@@ -32,7 +31,7 @@ char	*read_and_save(int fd, char *res)
 			return (NULL);
 		}
 		buffer[num_bytes] = 0;
-		res = ft_strjoin(res, buffer);
+		res = ft_strjoin_free(res, buffer);
 	}
 	free(buffer);
 	return (res);
@@ -101,3 +100,14 @@ char	*get_next_line(int fd)
 	save = get_the_next(save, line);
 	return (line);
 }
+
+// int main (void)
+// {
+// 	int fd;
+	
+
+// 	fd = open("file.txt", O_RDONLY);
+// 	printf("%s", get_next_line(fd));
+
+	
+// }

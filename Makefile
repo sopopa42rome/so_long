@@ -28,15 +28,14 @@ MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -fram
 
 linux: $(OBJS)
 	make re -C $(LIBFT)/
-	make re -C ./get_next_line/
 #gcc -c $(MLXFLAGSLINUX) $(SRCS)
 #ar rcs ./source/so_long.a $(OBJS)
-	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
 	make re -C ./get_next_line/
-	gcc -g $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a $(SRCS) -o $(NAME)
+	gcc -g $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
 	rm ./source/*.o
 
 prova: $(OBJS)
