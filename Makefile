@@ -15,7 +15,7 @@ SRCS = ./source/main.c \
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 LIBC	= ar -rcs
-CC		= gcc
+CC		= gcc -g
 FLAGS	= -Wall -Wextra -Werror
 INCS	= ./
 
@@ -34,14 +34,10 @@ linux: $(OBJS)
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
-	make re -C ./get_next_line/
-	gcc -g $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
+	gcc $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
 	rm ./source/*.o
 
-prova: $(OBJS)
-	$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-
-all: linux
+all: macos
 
 fclean: clean
 	$(RM) macos linux
