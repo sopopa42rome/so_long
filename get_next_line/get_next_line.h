@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:45 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/29 23:43:15 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/02 20:37:37 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # endif
 
 char	*ft_strchr(const char *str, int c);
-// void	*ft_calloc(size_t num_elements, size_t size);
+void	*ft_calloc(size_t num_elements, size_t size);
 void    ft_bzero(void *str, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);

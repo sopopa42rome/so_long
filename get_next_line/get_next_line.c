@@ -6,12 +6,12 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:58 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/29 23:42:13 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/02 20:47:05 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-# include "../libft/libft.h"
+#include "../libft/libft.h"
 
 char	*read_and_save(int fd, char *res)
 {

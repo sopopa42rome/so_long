@@ -6,7 +6,7 @@
 /*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/29 23:07:30 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/02 21:04:22 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ game_vars	*initialize_game(char *pathfile);
 int			read_and_init_map(char *pathfile, game_vars *game);
 int			count_rows(int fd);
 int			ft_free(game_vars **game);
+void		render_map(void);
 
 //checks map structure
 int		check_extension_file(char *pathfile);

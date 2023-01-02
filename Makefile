@@ -10,6 +10,7 @@ SRCS = ./source/main.c \
 	./source/initialize_map.c \
 	./source/checks_structure.c \
 	./source/check_elements.c \
+	./source/rendering.c
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -18,25 +19,19 @@ CC		= gcc
 FLAGS	= -Wall -Wextra -Werror
 INCS	= ./
 
-#LINUX INCLUDES
-MLXFLAGSLINUX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-
 #MACOS INCLUDES
 MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c
-	$(CC) $(FLAGS) -Imlx_linux -O3 -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 
 linux: $(OBJS)
 	make re -C $(LIBFT)/
 	make re -C ./get_next_line/
-	make re -C ./mlx_linux
-	gcc -c $(MLXFLAGSLINUX) $(SRCS)
-	ar rcs ./source/so_long.a $(OBJS)
-	gcc ./source/so_long.a ./get_next_line/get_next_line.a $(LIBFT)/$(LIBFT_LIB)
-	mv a.out $(NAME)
-	rm ../so_long/*.o
+#gcc -c $(MLXFLAGSLINUX) $(SRCS)
+#ar rcs ./source/so_long.a $(OBJS)
+	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
@@ -44,7 +39,10 @@ macos: $(OBJS)
 	gcc -g $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) ./get_next_line/get_next_line.a $(SRCS) -o $(NAME)
 	rm ./source/*.o
 
-all: macos
+prova: $(OBJS)
+	$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
+all: linux
 
 fclean: clean
 	$(RM) macos linux

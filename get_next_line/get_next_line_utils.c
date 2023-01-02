@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:09:01 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/28 16:00:51 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/02 20:49:26 by sorin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@
 // 	return (NULL);
 // }
 
-// void	*ft_calloc(size_t num_elements, size_t size)
-// {
-// 	void	*ptr;
+void	*ft_calloc(size_t num_elements, size_t size)
+{
+	void	*ptr;
 
-// 	ptr = malloc(num_elements * size);
-// 	if (!ptr)
-// 		return (NULL);
-// 	ft_bzero(ptr, (num_elements * size));
-// 	return (ptr);
-// }
+	ptr = malloc(num_elements * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, (num_elements * size));
+	return (ptr);
+}
 
 void	ft_bzero(void *str, size_t len)
 {
