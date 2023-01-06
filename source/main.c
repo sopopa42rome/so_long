@@ -21,6 +21,8 @@ int main (int argc, char **argv)
 	game = initialize_game(argv[1]);
 	if (!game || !game->map_matrix)
 		error_program_null();
+	game->mlx = mlx_init();
+	game->mlx_win = mlx_new_window(game->mlx, 800, 600, "Hello world!");
 	ft_render_map(game);
 
 

@@ -19,8 +19,6 @@ void	ft_draw_elements(game_vars *game, int rows, int col)
 
 	w = 32 * col;
 	h = 32 * rows;
-	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 800, 600, "Hello world!");
 	game->img = mlx_xpm_file_to_image(game->mlx, "xpm/pavimento.xpm", &w, &h);
 	mlx_hook(game->mlx_win,17,0,ft_close,0);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, w, h);
@@ -33,7 +31,8 @@ void    ft_render_map(game_vars *game)
     int		rows;
     int		col;
 
-    rows =	0;
+    rows = 0;
+	mlx_clear_window(game->mlx, game->mlx_win);
     while (game->map_matrix[rows])
 	{	
 		col = 0;
