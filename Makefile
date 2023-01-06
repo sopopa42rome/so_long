@@ -34,10 +34,10 @@ linux: $(OBJS)
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
-	gcc $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
+	$(CC) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
 	rm ./source/*.o
 
-all: macos
+all: linux
 
 fclean: clean
 	$(RM) macos linux

@@ -48,13 +48,16 @@ typedef struct game{
 	void	*mlx;
 	void	*mlx_win;
 	char	**line;
+	void 	*img;
 }	game_vars;
 
 game_vars	*initialize_game(char *pathfile);
 int			read_and_init_map(char *pathfile, game_vars *game);
 int			count_rows(int fd);
 int			ft_free(game_vars **game);
-void		render_map(void);
+int 		ft_close(void);
+void		ft_render_map(game_vars *game);
+void		ft_draw_elements(game_vars *game, int rows, int col);
 
 //checks map structure
 int		check_extension_file(char *pathfile);

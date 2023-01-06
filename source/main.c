@@ -21,10 +21,8 @@ int main (int argc, char **argv)
 	game = initialize_game(argv[1]);
 	if (!game || !game->map_matrix)
 		error_program_null();
-	render_map();
-	// game->mlx = mlx_init();
-	// height = game->height * PIXEL_SIZE;
-	// game->mlx_win = 
+	ft_render_map(game);
+
 
 	return (0);
 }

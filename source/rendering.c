@@ -12,20 +12,73 @@
 
 #include "so_long.h"
 
+void	ft_draw_elements(game_vars *game, int rows, int col)
+{	
+	int w;
+	int h;
 
-void render_map(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	void    *img;
-    int     w;
-    int     h;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 800, 600, "Hello world!");
-    img = mlx_xpm_file_to_image(mlx, "../xpm/pavimento.xpm", &w, &h);
-    mlx_put_image_to_window(mlx, mlx_win, img, 32, 32);
-    mlx_destroy_image(mlx, img);
-    mlx_loop(mlx);
-
+	w = 32 * col;
+	h = 32 * rows;
+	game->mlx = mlx_init();
+	game->mlx_win = mlx_new_window(game->mlx, 800, 600, "Hello world!");
+	game->img = mlx_xpm_file_to_image(game->mlx, "xpm/pavimento.xpm", &w, &h);
+	mlx_hook(game->mlx_win,17,0,ft_close,0);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, w, h);
+	mlx_destroy_image(game->mlx, game->img);
+    mlx_loop(game->mlx);
 }
+
+void    ft_render_map(game_vars *game)
+{   
+    int		rows;
+    int		col;
+
+    rows =	0;
+    while (game->map_matrix[rows])
+	{	
+		col = 0;
+		while (game->map_matrix[rows][col])
+		{
+			ft_draw_elements(game, rows, col);
+			col++;
+		}
+		rows++;
+	}
+}
+
+int ft_close(void)
+{
+    exit(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void render_map(void)
+// {
+// 	void	*mlx;
+// 	void	*mlx_win;
+// 	void    *img;
+//     int     w;
+//     int     h;
+//     char *path = "xpm/pavimento.xpm";
+
+// 	mlx = mlx_init();
+// 	mlx_win = mlx_new_window(mlx, 800, 600, "Hello world!");
+//     img = mlx_xpm_file_to_image(mlx, path, &w, &h);
+//     mlx_hook(mlx_win,17,0,ft_close,0);
+//     mlx_put_image_to_window(mlx, mlx_win, img, 32, 32);
+//     //mlx_destroy_image(mlx, img);
+//     mlx_loop(mlx);
+
+// }
