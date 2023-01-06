@@ -3,81 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:30:36 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/02 21:06:32 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/06 21:16:06 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_draw_elements(game_vars *game, int rows, int col)
-{	
-	int w;
-	int h;
+void	ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col)
+{
+	if (c == '1' && rows == 0)
+		ft_draw_walls(game, img, rows, col);
+	if (c == '1' && rows == 0 && col > 0 && col < game->width - 1)
+	 	ft_draw_frame_up(game, img, rows, col);
+	if (rows > 0 && rows <= game->height)
+		ft_draw_floor(game, img, rows, col);
+	//else if (rows >= 1 && rows <= game->height && col >= 0 && col == game->width)
+}		
 
-	w = 32 * col;
-	h = 32 * rows;
-	game->img = mlx_xpm_file_to_image(game->mlx, "xpm/pavimento.xpm", &w, &h);
-	mlx_hook(game->mlx_win,17,0,ft_close,0);
-	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, w, h);
-	mlx_destroy_image(game->mlx, game->img);
-    mlx_loop(game->mlx);
-}
-
-void    ft_render_map(game_vars *game)
+void    ft_render_map(game_vars *game, t_img *img)
 {   
     int		rows;
     int		col;
 
     rows = 0;
-	mlx_clear_window(game->mlx, game->mlx_win);
-    while (game->map_matrix[rows])
+	get_image_pointer(game, img);
+    while (rows <= game->height)
 	{	
 		col = 0;
-		while (game->map_matrix[rows][col])
+		while (col < game->width)
 		{
-			ft_draw_elements(game, rows, col);
+			ft_draw_elements(game, img, game->map_matrix[rows][col], rows, col);
 			col++;
 		}
 		rows++;
 	}
 }
 
-int ft_close(void)
+void	get_image_pointer(t_img *img, game_vars *game)
 {
-    exit(0);
+	img->frame_up = mlx_xpm_file_to_image(game->mlx, FRAME_UP, &img->w, &img->h);
+	img->floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &img->w, &img->h);
+	img->wall_front = mlx_xpm_file_to_image(game->mlx, WALL_FRONT, &img->w, &img->h);
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// void render_map(void)
-// {
-// 	void	*mlx;
-// 	void	*mlx_win;
-// 	void    *img;
-//     int     w;
-//     int     h;
-//     char *path = "xpm/pavimento.xpm";
-
-// 	mlx = mlx_init();
-// 	mlx_win = mlx_new_window(mlx, 800, 600, "Hello world!");
-//     img = mlx_xpm_file_to_image(mlx, path, &w, &h);
-//     mlx_hook(mlx_win,17,0,ft_close,0);
-//     mlx_put_image_to_window(mlx, mlx_win, img, 32, 32);
-//     //mlx_destroy_image(mlx, img);
-//     mlx_loop(mlx);
-
-// }
+t_img	*initialize_images(t_img *img)
+{
+	img = malloc(sizeof(t_img));
+	if (!img)
+		return (NULL);
+	return (img);
+		
+}
