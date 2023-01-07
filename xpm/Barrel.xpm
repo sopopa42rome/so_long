@@ -169,7 +169,7 @@ static char *rcp08331506957629[] = {
 "Y. c gray83",
 "T. c #D5D5D5",
 "R. c #D7D7D7",
-"E. c white",
+"E. c None",
 /* pixels */
 "E.E.E.E.E.E.s.s.s.s.0.E.E.E.E.E.E.",
 "E.E.E.E.s.s.s.s.s.s.i.i.s.E.E.E.E.",

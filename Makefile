@@ -12,7 +12,8 @@ SRCS = ./source/main.c \
 	./source/checks_structure.c \
 	./source/check_elements.c \
 	./source/rendering.c \
-	./source/render_elements.c
+	./source/render_elements.c \
+	./source/render_elements_2.c
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -27,6 +28,7 @@ MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -fram
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
+all: macos
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
@@ -36,8 +38,6 @@ linux: $(OBJS)
 	make re -C $(LIBFT)/
 	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lXrender -lm -lz -o $(NAME)
 
-
-all: linux
 
 fclean: clean
 	$(RM) macos linux

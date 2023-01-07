@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:30:36 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/06 21:16:06 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/07 17:34:28 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@ void	ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col)
 		ft_draw_walls(game, img, rows, col);
 	if (rows > 0 && rows <= game->height)
 		ft_draw_floor(game, img, rows, col);
-	if (c == '1' && rows == 0 && col > 0 && col < game->width - 1)
+	if (c == '1' && rows == 0 && col >= 0 && col < game->width)
 	  	ft_draw_frame_up(game, img, rows, col);
-	if (c == '1' && rows == game->height - 1 && col > 0 && col < game->width - 1)
+	if (c == '1' && rows == game->height - 1 && col >= 0 && col < game->width)
 		ft_draw_frame_down(game, img, rows, col);
-}	
+	if (c == '1' && rows >= 0 && col == 0)
+		ft_draw_frame_left(game, img, rows, col);
+	if (c == '1' && rows >= 0 && col == game->width - 1)
+		ft_draw_frame_right(game, img, rows, col);
+	if (c == '1' && rows > 0 && rows < game->height - 1 && col > 0 && col < game->width - 1)
+		ft_draw_barrel(game, img, rows, col);
+}		
 
 void    ft_render_map(game_vars *game, t_img *img)
 {   
@@ -49,6 +55,11 @@ void		get_image_pointer(game_vars *game, t_img *img)
 	img->floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &img->w, &img->h);
 	img->wall_front = mlx_xpm_file_to_image(game->mlx, WALL_FRONT, &img->w, &img->h);
 	img->frame_down = mlx_xpm_file_to_image(game->mlx, FRAME_DOWN, &img->w, &img->h);
+	img->frame_left = mlx_xpm_file_to_image(game->mlx, FRAME_LEFT, &img->w, &img->h);
+	img->frame_right = mlx_xpm_file_to_image(game->mlx, FRAME_RIGHT, &img->w, &img->h);
+	img->barrel = mlx_xpm_file_to_image(game->mlx, BARREL, &img->w, &img->h);
+	//img->frame_l_u = mlx_xpm_file_to_image(game->mlx, FRAME_L_U, &img->w, &img->h);
+
 
 }
 

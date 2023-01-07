@@ -15,7 +15,7 @@ static char *rcp08333122596352[] = {
 "& c #9E7450",
 "* c #B48158",
 "= c #ACA4A3",
-"- c white",
+"- c None",
 /* pixels */
 "oooooooooooooooooooooooooooooooo",
 "O*=*O*=*@*=*O*=*O*=*O*=*O*=*O*=*",

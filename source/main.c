@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/06 21:16:32 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/07 18:22:13 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main (int argc, char **argv)
 		error_program_null();
 	img = initialize_images(img);
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, 32 * game->width, 32 * game->height, "Hello world!");
+	game->mlx_win = mlx_new_window(game->mlx, BLOCK * game->width, BLOCK * game->height, "Hello world!");
 	ft_render_map(game, img);
 	mlx_hook(game->mlx_win,17,0,ft_close,0);
 	mlx_loop(game->mlx);

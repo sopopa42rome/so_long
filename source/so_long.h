@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/06 21:17:17 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/07 19:36:30 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <math.h>
 
 // Num error define
 # define FILE_EXTENSION_WRONG 3
@@ -41,6 +42,10 @@
 # define FRAME_DOWN "xpm/down_wall.xpm"
 # define FLOOR "xpm/pavimento.xpm"
 # define WALL_FRONT "xpm/wall_front.xpm"
+# define FRAME_LEFT "xpm/left_side_wall.xpm"
+# define FRAME_RIGHT "xpm/right_side_wall.xpm"
+# define BARREL "xpm/Barrel32.xpm"
+//# define COLLECT "xpm"
 
 typedef struct game
 {
@@ -62,8 +67,15 @@ typedef struct img
 	void 	*walls;
 	void 	*frame_up;
 	void	*frame_down;
+	void	*frame_left;
+	void	*frame_right;
 	void	*floor;
 	void	*wall_front;
+	void	*barrel;
+	void	*frame_r_u;
+	void	*frame_l_u;
+	void	*frame_l_d;
+	void	*frame_r_d;
 }	t_img;
 
 //init and free
@@ -82,6 +94,9 @@ void		ft_draw_floor(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_walls(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_up(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_down(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_frame_left(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_barrel(game_vars *game, t_img *img, int rows, int col);
 
 //checks map structure
 int			check_extension_file(char *pathfile);
