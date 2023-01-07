@@ -30,7 +30,7 @@ int		ft_check_width(game_vars *game)
 	i = 0;
 	if (!game && !game->map_matrix)
 		return (0); 
-	while (i < game->height)
+	while (i < game->height - 1)
 	{
 		if (ft_strlen(game->map_matrix[i]) - 1 != (size_t)game->width)
 			return (0);
@@ -47,7 +47,7 @@ int		ft_check_walls(game_vars *game)
 
 	rows = 0;
 	cols = 0;
-	while (rows < game->height)
+	while (rows < game->height - 1)
 	{
 		if (rows == 0 || rows == game->height - 1)
 		{

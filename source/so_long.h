@@ -37,7 +37,8 @@
 
 // Generic values and paths
 # define BLOCK 32
-# define FRAME_UP "xpm/wall_front_up2.xpm"
+# define FRAME_UP "xpm/wall_front_up.xpm"
+# define FRAME_DOWN "xpm/down_wall.xpm"
 # define FLOOR "xpm/pavimento.xpm"
 # define WALL_FRONT "xpm/wall_front.xpm"
 
@@ -75,11 +76,12 @@ int 		ft_close(void);
 
 //rendering
 void		ft_render_map(game_vars *game, t_img *img);
-void		get_image_pointer(t_img *img, game_vars *game);
+void		get_image_pointer(game_vars *game, t_img *img);
 void		ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col);
 void		ft_draw_floor(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_walls(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_up(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_frame_down(game_vars *game, t_img *img, int rows, int col);
 
 //checks map structure
 int			check_extension_file(char *pathfile);

@@ -43,7 +43,7 @@ int read_and_init_map(char *pathfile, game_vars *game)
 	while (++i < rows && game->map_matrix)
 		game->map_matrix[i] = get_next_line(fd);
 	close(fd);
-	game->height = rows - 1;
+	game->height = rows;
 	if (game->map_matrix)
 		game->width = ft_strlen(game->map_matrix[i - 1]);
 	if (!game->map_matrix || !ft_check_errors(game))

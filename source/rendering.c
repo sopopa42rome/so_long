@@ -16,12 +16,13 @@ void	ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col)
 {
 	if (c == '1' && rows == 0)
 		ft_draw_walls(game, img, rows, col);
-	if (c == '1' && rows == 0 && col > 0 && col < game->width - 1)
-	 	ft_draw_frame_up(game, img, rows, col);
 	if (rows > 0 && rows <= game->height)
 		ft_draw_floor(game, img, rows, col);
-	//else if (rows >= 1 && rows <= game->height && col >= 0 && col == game->width)
-}		
+	if (c == '1' && rows == 0 && col > 0 && col < game->width - 1)
+	  	ft_draw_frame_up(game, img, rows, col);
+	if (c == '1' && rows == game->height - 1 && col > 0 && col < game->width - 1)
+		ft_draw_frame_down(game, img, rows, col);
+}	
 
 void    ft_render_map(game_vars *game, t_img *img)
 {   
@@ -30,7 +31,7 @@ void    ft_render_map(game_vars *game, t_img *img)
 
     rows = 0;
 	get_image_pointer(game, img);
-    while (rows <= game->height)
+    while (rows <= game->height - 1)
 	{	
 		col = 0;
 		while (col < game->width)
@@ -42,11 +43,12 @@ void    ft_render_map(game_vars *game, t_img *img)
 	}
 }
 
-void	get_image_pointer(t_img *img, game_vars *game)
+void		get_image_pointer(game_vars *game, t_img *img)
 {
 	img->frame_up = mlx_xpm_file_to_image(game->mlx, FRAME_UP, &img->w, &img->h);
 	img->floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &img->w, &img->h);
 	img->wall_front = mlx_xpm_file_to_image(game->mlx, WALL_FRONT, &img->w, &img->h);
+	img->frame_down = mlx_xpm_file_to_image(game->mlx, FRAME_DOWN, &img->w, &img->h);
 
 }
 

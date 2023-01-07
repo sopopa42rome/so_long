@@ -20,7 +20,7 @@ int     ft_check_player(game_vars *game)
 
     player = 0;
     r = 0;
-    while (r < game->height)
+    while (r < game->height - 1)
     {
         c = 0;
         while(c < game->width - 1)
@@ -49,7 +49,7 @@ int     ft_check_exit(game_vars *game)
     
     exit = 0;
     r = 0;
-    while (r < game->height)
+    while (r < game->height - 1)
     {
         c = 0;
         while(c <= game->width)
@@ -76,7 +76,7 @@ int     ft_check_collectible(game_vars *game)
 
     r = 0;
     collect = 0;
-    while (r < game->height)
+    while (r < game->height - 1)
     {
         c = 0;
         while(c <= game->width)

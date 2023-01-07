@@ -34,10 +34,10 @@ macos: $(OBJS)
 
 linux: $(OBJS)
 	make re -C $(LIBFT)/
-	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lXrender -lm -lz -o $(NAME)
 
 
-all: macos
+all: linux
 
 fclean: clean
 	$(RM) macos linux

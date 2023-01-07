@@ -157,3 +157,14 @@ void	*mlx_new_image2(t_xvar *xvar,int width, int height)
       return (img);
   return (mlx_int_new_image(xvar,width,height,XYPixmap));
 }
+
+void	*mlx_new_image_alpha(t_xvar *xvar,int width, int height)
+{
+	t_img	*img;
+
+	img = mlx_new_image(xvar, width, height);
+	if (img)
+		img->pict = XRenderCreatePicture(xvar->display, img->pix,
+										 xvar->pict_format, 0, NULL);
+	return (img);
+}
