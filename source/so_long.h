@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/07 19:36:30 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/07 20:16:52 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define FRAME_LEFT "xpm/left_side_wall.xpm"
 # define FRAME_RIGHT "xpm/right_side_wall.xpm"
 # define BARREL "xpm/Barrel32.xpm"
-//# define COLLECT "xpm"
+# define COLLECT "xpm"
 
 typedef struct game
 {
