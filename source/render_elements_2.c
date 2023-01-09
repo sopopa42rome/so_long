@@ -12,22 +12,22 @@
 
 #include "so_long.h"
 
-void	ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col)
-{
+void	ft_draw_frame_up_right(game_vars *game, t_img *img, int rows, int col)
+{	
 	int w;
 	int h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_right, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_r_u, w, h);
 }
 
-void	ft_draw_barrel(game_vars *game, t_img *img, int rows, int col)
-{
+void	ft_draw_snow(game_vars *game, t_img *img, int rows, int col)
+{	
 	int w;
 	int h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->barrel, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, img->blue, w, h);
 }

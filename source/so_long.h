@@ -37,15 +37,20 @@
 # define GAME_NULL 12
 
 // Generic values and paths
-# define BLOCK 32
-# define FRAME_UP "xpm/wall_front_up.xpm"
-# define FRAME_DOWN "xpm/down_wall.xpm"
-# define FLOOR "xpm/pavimento.xpm"
-# define WALL_FRONT "xpm/wall_front.xpm"
-# define FRAME_LEFT "xpm/left_side_wall.xpm"
-# define FRAME_RIGHT "xpm/right_side_wall.xpm"
-# define BARREL "xpm/Barrel32.xpm"
-# define COLLECT "xpm"
+# define BLOCK 64
+# define FRAME_UP "xpm/sopra_centrale.xpm"
+# define FRAME_DOWN "xpm/sotto_centro.xpm"
+# define FLOOR "xpm/centro.xpm"
+# define FRAME_LEFT "xpm/lato_sinistro_centro.xpm"
+# define FRAME_RIGHT "xpm/lato_destro_centro.xpm"
+# define FRAME_R_U "xpm/sopra_destra.xpm"
+# define FRAME_L_U "xpm/sopra_sinistra.xpm"
+# define FRAME_L_D "xpm/sotto_sinistra.xpm"
+# define FRAME_R_D "xpm/destro_sotto.xpm"
+# define BLUE "xpm/snow.xpm"
+
+
+
 
 typedef struct game
 {
@@ -64,18 +69,16 @@ typedef struct img
 {	
 	int		w;
 	int		h;
-	void 	*walls;
 	void 	*frame_up;
 	void	*frame_down;
 	void	*frame_left;
 	void	*frame_right;
 	void	*floor;
-	void	*wall_front;
-	void	*barrel;
 	void	*frame_r_u;
 	void	*frame_l_u;
 	void	*frame_l_d;
 	void	*frame_r_d;
+	void	*blue;
 }	t_img;
 
 //init and free
@@ -91,12 +94,14 @@ void		ft_render_map(game_vars *game, t_img *img);
 void		get_image_pointer(game_vars *game, t_img *img);
 void		ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col);
 void		ft_draw_floor(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_walls(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_frame_up_left(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_frame_up_right(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_up(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_down(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_left(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col);
 void		ft_draw_barrel(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_snow(game_vars *game, t_img *img, int rows, int col);
 
 //checks map structure
 int			check_extension_file(char *pathfile);

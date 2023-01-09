@@ -28,7 +28,7 @@ MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -fram
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-all: macos
+all: linux
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/

@@ -12,14 +12,14 @@
 
 #include "so_long.h"
 
-void	ft_draw_walls(game_vars *game, t_img *img, int rows, int col)
+void	ft_draw_frame_up_left(game_vars *game, t_img *img, int rows, int col)
 {	
 	int w;
 	int h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->wall_front, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_l_u, w, h);
 }
 
 void	ft_draw_floor(game_vars *game, t_img *img, int rows, int col)
@@ -60,4 +60,14 @@ void	ft_draw_frame_left(game_vars *game, t_img *img, int rows, int col)
 	w = BLOCK * col;
 	h = BLOCK * rows;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_left , w, h);
+}
+
+void	ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col)
+{
+	int w;
+	int h;
+
+	w = BLOCK * col;
+	h = BLOCK * rows;
+	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_right, w, h);
 }
