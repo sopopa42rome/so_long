@@ -8,12 +8,13 @@ LIBFT_LIB = libft.a
 SRCS = ./source/main.c \
 	./source/errors.c \
 	./source/errors2.c \
+	./source/errors_3.c \
 	./source/initialize_map.c \
 	./source/checks_structure.c \
 	./source/check_elements.c \
 	./source/rendering.c \
 	./source/render_elements.c \
-	./source/render_elements_2.c
+	./source/render_elements_2.c \
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -28,7 +29,7 @@ MLXFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -fram
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-all: linux
+all: macos
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/

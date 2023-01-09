@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/07 20:16:52 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:27:09 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,30 @@
 # define FILE_NOT_FOUND 10
 # define NO_WALLS 11
 # define GAME_NULL 12
+# define IMG_NOT_ASSIGNED 13
 
 // Generic values and paths
 # define BLOCK 64
-# define FRAME_UP "xpm/sopra_centrale.xpm"
-# define FRAME_DOWN "xpm/sotto_centro.xpm"
-# define FLOOR "xpm/centro.xpm"
-# define FRAME_LEFT "xpm/lato_sinistro_centro.xpm"
-# define FRAME_RIGHT "xpm/lato_destro_centro.xpm"
-# define FRAME_R_U "xpm/sopra_destra.xpm"
-# define FRAME_L_U "xpm/sopra_sinistra.xpm"
-# define FRAME_L_D "xpm/sotto_sinistra.xpm"
-# define FRAME_R_D "xpm/destro_sotto.xpm"
-# define BLUE "xpm/snow.xpm"
+# define PLAYER "xpm/player2.xpm"
+# define GRASS "xpm/erba_fiori.xpm"
+# define TREE "xpm/albero2.xpm"
+# define STONE "xpm/stone.xpm"
+# define DOOR_CLOSED "xpm/door_closed.xpm"
+# define COLLECT "xpm/collect.xpm"
 
 
 
+typedef struct img
+{	
+	int		w;
+	int		h;
+	void 	*player;
+	void	*grass;
+	void	*tree;
+	void	*stone;
+	void	*door_closed;
+	void	*collect;
+}	t_img;
 
 typedef struct game
 {
@@ -63,50 +71,33 @@ typedef struct game
 	void	*mlx;
 	void	*mlx_win;
 	char	**line;
+	t_img	*img;
 }	game_vars;
 
-typedef struct img
-{	
-	int		w;
-	int		h;
-	void 	*frame_up;
-	void	*frame_down;
-	void	*frame_left;
-	void	*frame_right;
-	void	*floor;
-	void	*frame_r_u;
-	void	*frame_l_u;
-	void	*frame_l_d;
-	void	*frame_r_d;
-	void	*blue;
-}	t_img;
 
 //init and free
 game_vars	*initialize_game(char *pathfile);
-t_img		*initialize_images(t_img *img);
+t_img		*initialize_images(game_vars *game);
 int			read_and_init_map(char *pathfile, game_vars *game);
 int			count_rows(int fd);
 int			ft_free(game_vars **game);
 int 		ft_close(void);
 
 //rendering
-void		ft_render_map(game_vars *game, t_img *img);
+void    	ft_render_map(game_vars *game, t_img *img);
 void		get_image_pointer(game_vars *game, t_img *img);
-void		ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col);
-void		ft_draw_floor(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_up_left(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_up_right(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_up(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_down(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_left(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_barrel(game_vars *game, t_img *img, int rows, int col);
-void		ft_draw_snow(game_vars *game, t_img *img, int rows, int col);
+void		ft_draw_elements(game_vars *game, char c, int rows, int col);
+void		ft_draw_grass(game_vars *game, int rows, int col);
+void		ft_draw_tree(game_vars *game, int rows, int col);
+void		ft_draw_stone(game_vars *game, int rows, int col);
+void		ft_draw_player(game_vars *game, int rows, int col);
+void		ft_draw_door_closed(game_vars *game, int rows, int col);
+void		ft_draw_collectible(game_vars *game, int rows, int col);
 
 //checks map structure
 int			check_extension_file(char *pathfile);
 int			ft_check_errors(game_vars *game);
-int			ft_check_walls(game_vars *game);
+int			ft_check_walls(game_vars *game); 
 int			ft_check_width(game_vars *game);
 int     	ft_check_player(game_vars *game);
 int     	ft_check_collectible(game_vars *game);
@@ -123,5 +114,6 @@ void    	error_exit_inexistent(void);
 void		error_map_not_found(void);
 void		error_incomplete_walls(void);
 void    	error_program_null(void);
+void		error_img_not_assigned(void);
 
 #endif

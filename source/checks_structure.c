@@ -6,30 +6,29 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2022/12/28 20:04:51 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/09 19:00:43 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		check_extension_file(char *pathfile)
+int	check_extension_file(char *pathfile)
 {
-	char *str;
+	char	*str;
 
 	str = ft_strchr(pathfile, '.');
 	if (ft_strncmp(str, ".ber", 4) == 0 && ft_strlen(str) == 4)
 		return (1);
 	return (FILE_EXTENSION_WRONG);
-
 }
 
-int		ft_check_width(game_vars *game)
+int	ft_check_width(game_vars *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!game && !game->map_matrix)
-		return (0); 
+		return (0);
 	while (i < game->height - 1)
 	{
 		if (ft_strlen(game->map_matrix[i]) - 1 != (size_t)game->width)
@@ -40,10 +39,10 @@ int		ft_check_width(game_vars *game)
 	return (1);
 }
 
-int		ft_check_walls(game_vars *game)
+int	ft_check_walls(game_vars *game)
 {
-	int rows;
-	int cols;
+	int	rows;
+	int	cols;
 
 	rows = 0;
 	cols = 0;
@@ -67,7 +66,7 @@ int		ft_check_walls(game_vars *game)
 	return (1);
 }
 
-int		ft_check_errors(game_vars *game)
+int	ft_check_errors(game_vars *game)
 {
 	if (!game)
 		error_program_null();
@@ -83,13 +82,3 @@ int		ft_check_errors(game_vars *game)
 		error_exit_inexistent();
 	return (1);
 }
-
-
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:35:57 by sopopa            #+#    #+#             */
-/*   Updated: 2022/12/29 15:36:50 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/09 19:01:44 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	error_incomplete_walls(void)
 {
-    ft_putstr_fd("Error:\nIncomplete map walls!\n", 2);
-    exit(NO_WALLS);
+	ft_putstr_fd("Error:\nIncomplete map walls!\n", 2);
+	exit(NO_WALLS);
 }
 
 void	error_collectible_inexistent(void)
 {
-    ft_putstr_fd("Error:\nThere must be at least one collectible!\n", 2);
-    exit(NO_COLLECTIBLE);
+	ft_putstr_fd("Error:\nThere must be at least one collectible!\n", 2);
+	exit(NO_COLLECTIBLE);
 }
 
 void	error_exit_inexistent(void)
 {
-    ft_putstr_fd("Error:\nThe exit is inexistent!\n", 2);
-    exit(NO_EXIT);
+	ft_putstr_fd("Error:\nThe exit is inexistent!\n", 2);
+	exit(NO_EXIT);
 }
 
-void    error_map_not_found(void)
+void	error_map_not_found(void)
 {
-    ft_putstr_fd("Error:\nFile not found!\n", 2);
-    exit(FILE_NOT_FOUND);
+	ft_putstr_fd("Error:\nFile not found!\n", 2);
+	exit(FILE_NOT_FOUND);
 }
 
-void    error_program_null(void)
+void	error_program_null(void)
 {
-    ft_putstr_fd("Error:\nLack of parameters!\n", 2);
-    exit(GAME_NULL);
+	ft_putstr_fd("Error:\nLack of parameters!\n", 2);
+	exit(GAME_NULL);
 }

@@ -6,30 +6,28 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:30:36 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/07 17:34:28 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:30:49 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_draw_elements(game_vars *game, t_img *img, char c, int rows, int col)
+void	ft_draw_elements(game_vars *game, char c, int rows, int col)
 {
-	if (c && rows >= 0 && col >= 0 && col <= game->width -1)
-		ft_draw_snow(game, img, rows, col);
-	if (rows == 1 && col == 1)
-		ft_draw_frame_up_left(game, img, rows, col);
-	// if (rows > 0 && col == game->width - 1)
-	// 	ft_draw_frame_up_right(game, img, rows, col);
-	// if (c == '1' && rows == 0 && col > 0 && col < game->width - 1)
-	//   	ft_draw_frame_up(game, img, rows, col);
-	// if (c == '1' && rows == game->height - 1 && col > 0 && col < game->width - 1)
-	// 	ft_draw_frame_down(game, img, rows, col);
-	// if (c == '1' && rows > 0 && rows <= game->height - 2 && col == 0)
-	// 	ft_draw_frame_left(game, img, rows, col);
-	// if (c == '1' && rows >= 0 && col == game->width - 1)
-	// 	ft_draw_frame_right(game, img, rows, col);
-	//if (c == '1' && rows > 0 && rows < game->height - 1 && col > 0 && col < game->width - 1)
-		//ft_draw_barrel(game, img, rows, col);
+	if ( c && rows >= 0 && col >= 0 && col <= game->width -1)
+	 	ft_draw_grass(game, rows, col);
+	// if (c == '1' && (rows >= 0 && rows <= game->height - 1) && (col == 0 || col == game->width -1 ))
+	// 	ft_draw_stone(game, rows, col);
+	// if (c == '1' && (rows == 0 || rows == game->height - 1) && (col >= 0 && col <= game->width -1 ))
+	// 	ft_draw_stone(game, rows, col);
+	// if (c == '1' && rows > 0 && rows < game->height - 1 && col > 0 && col < game->width -1)
+	// 	ft_draw_tree(game, rows, col);
+	// if (c == 'P')
+	// 	ft_draw_player(game, rows, col);
+	// if (c == 'E')
+	// 	ft_draw_door_closed(game, rows, col);
+	// if (c == 'C')
+	// 	ft_draw_collectible(game, rows, col);
 }		
 
 void    ft_render_map(game_vars *game, t_img *img)
@@ -44,35 +42,31 @@ void    ft_render_map(game_vars *game, t_img *img)
 		col = 0;
 		while (col < game->width)
 		{
-			ft_draw_elements(game, img, game->map_matrix[rows][col], rows, col);
+			ft_draw_elements(game, game->map_matrix[rows][col], rows, col);
 			col++;
 		}
 		rows++;
 	}
 }
 
-void		get_image_pointer(game_vars *game, t_img *img)
+void	get_image_pointer(game_vars *game, t_img *img)
 {
-	img->frame_up = mlx_xpm_file_to_image(game->mlx, FRAME_UP, &img->w, &img->h);
-	img->floor = mlx_xpm_file_to_image(game->mlx, FLOOR, &img->w, &img->h);
-	img->frame_down = mlx_xpm_file_to_image(game->mlx, FRAME_DOWN, &img->w, &img->h);
-	img->frame_left = mlx_xpm_file_to_image(game->mlx, FRAME_LEFT, &img->w, &img->h);
-	img->frame_right = mlx_xpm_file_to_image(game->mlx, FRAME_RIGHT, &img->w, &img->h);
-	img->frame_l_u = mlx_xpm_file_to_image(game->mlx, FRAME_L_U, &img->w, &img->h);
-	img->frame_r_u = mlx_xpm_file_to_image(game->mlx, FRAME_R_U, &img->w, &img->h);
-	img->frame_l_d = mlx_xpm_file_to_image(game->mlx, FRAME_L_D, &img->w, &img->h);
-	img->frame_r_d = mlx_xpm_file_to_image(game->mlx, FRAME_R_D, &img->w, &img->h);
-	img->blue = mlx_xpm_file_to_image(game->mlx, BLUE, &img->w, &img->h);
-
-
-
+	img->grass = mlx_xpm_file_to_image(game->mlx, GRASS, &img->w, &img->h);
+	img->tree = mlx_xpm_file_to_image(game->mlx, TREE, &img->w, &img->h);
+	img->stone = mlx_xpm_file_to_image(game->mlx, STONE, &img->w, &img->h);
+	img->player = mlx_xpm_file_to_image(game->mlx, PLAYER, &img->w, &img->h);
+	img->door_closed = mlx_xpm_file_to_image(game->mlx, DOOR_CLOSED, &img->w, &img->h);
+	img->collect = mlx_xpm_file_to_image(game->mlx, COLLECT, &img->w, &img->h);
+	// if (!game->img->grass || !game->img->tree || !game->img->stone || 
+	// 	!game->img->player || !game->img->door_closed || !game->img->collect)
+	// 	error_img_not_assigned();
 }
 
-t_img	*initialize_images(t_img *img)
+t_img	*initialize_images(game_vars *game)
 {
-	img = malloc(sizeof(t_img));
-	if (!img)
-		return (NULL);
-	return (img);
+	game->img = malloc(sizeof(game->img));
+	if (!game->img)
+		error_program_null();
+	return (game->img);
 		
 }

@@ -5,69 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 18:05:06 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/07 15:25:20 by sopopa           ###   ########.fr       */
+/*   Created: 2023/01/07 15:19:22 by sopopa            #+#    #+#             */
+/*   Updated: 2023/01/09 21:28:22 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_draw_frame_up_left(game_vars *game, t_img *img, int rows, int col)
+void	ft_draw_grass(game_vars *game, int rows, int col)
 {	
-	int w;
-	int h;
+	int	w;
+	int	h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_l_u, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img->grass, w, h);
 }
 
-void	ft_draw_floor(game_vars *game, t_img *img, int rows, int col)
+void	ft_draw_tree(game_vars *game, int rows, int col)
 {	
-	int w;
-	int h;
+	int	w;
+	int	h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->floor, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img->tree, w, h);
 }
 
-void	ft_draw_frame_up(game_vars *game, t_img *img, int rows, int col)
-{
-	int w;
-	int h;
+void	ft_draw_stone(game_vars *game, int rows, int col)
+{	
+	int	w;
+	int	h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_up , w, h);	
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img->stone, w, h);
 }
 
-void	ft_draw_frame_down(game_vars *game, t_img *img, int rows, int col)
-{
-	int w;
-	int h;
+void	ft_draw_player(game_vars *game, int rows, int col)
+{	
+	int	w;
+	int	h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_down , w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win,
+		game->img->player, w + 4, h + 10);
 }
 
-void	ft_draw_frame_left(game_vars *game, t_img *img, int rows, int col)
-{
-	int w;
-	int h;
+void	ft_draw_door_closed(game_vars *game, int rows, int col)
+{	
+	int	w;
+	int	h;
 
 	w = BLOCK * col;
 	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_left , w, h);
-}
-
-void	ft_draw_frame_right(game_vars *game, t_img *img, int rows, int col)
-{
-	int w;
-	int h;
-
-	w = BLOCK * col;
-	h = BLOCK * rows;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img->frame_right, w, h);
+	mlx_put_image_to_window(game->mlx, game->mlx_win,
+		game->img->door_closed, w + 5, h + 5);
 }
