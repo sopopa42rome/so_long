@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:34:20 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/10 18:25:08 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/10 20:16:48 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_check_player(t_game_vars *game)
 			if (game->map_matrix[r][c] == 'P')
 			{
 				player++;
-				game->x = r;
-				game->y = c;
+				game->pos_player_x = r;
+				game->pos_player_y = c;
 			}
 			c++;
 		}

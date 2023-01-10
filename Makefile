@@ -15,6 +15,7 @@ SRCS = ./source/main.c \
 	./source/rendering.c \
 	./source/render_elements.c \
 	./source/render_elements_2.c \
+	./source/movements.c 
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
@@ -38,7 +39,6 @@ macos: $(OBJS)
 linux: $(OBJS)
 	make re -C $(LIBFT)/
 	$(CC) $(OBJS) $(LIBFT)/$(LIBFT_LIB) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lXrender -lm -lz -o $(NAME)
-
 
 fclean: clean
 	$(RM) $(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sorin <sorin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 19:08:58 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/02 22:30:36 by sorin            ###   ########.fr       */
+/*   Updated: 2023/01/10 19:10:38 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*read_and_save(int fd, char *res)
 {
 	char	*buffer;
 	int		num_bytes;
-	
+
 	if (!res)
 		res = ft_calloc(1, 1);
 	buffer = malloc(BUFFER_SIZE + 1 * sizeof(buffer));
@@ -45,14 +45,14 @@ char	*get_first_line(char *save)
 	if (!save)
 		return (NULL);
 	i = 0;
-	while(save[i] && save[i] != '\n')
+	while (save[i] && save[i] != '\n')
 		i++;
-	line = ft_calloc(i + 2 , sizeof(line));
+	line = ft_calloc(i + 2, sizeof(line));
 	i = 0;
 	while (save[i] != '\n' && save[i])
 	{
 		line[i] = save[i];
-		i++;	
+		i++;
 	}
 	if (save[i] == '\n')
 	{
@@ -68,7 +68,8 @@ char	*get_the_next(char *save, char *line)
 	int		i;
 	char	*new_line;
 
-	new_line = ft_calloc(ft_strlen(save) - ft_strlen(line) + 1, sizeof(new_line));
+	new_line = ft_calloc(ft_strlen(save) - ft_strlen(line)
+			+ 1, sizeof(new_line));
 	j = 0;
 	i = ft_strlen(line);
 	while (save[i] != '\0')
@@ -90,8 +91,8 @@ char	*get_next_line(int fd)
 {
 	static char	*save;
 	char		*line;
-	
-	if (fd < 0 || BUFFER_SIZE <= 0)	
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	save = read_and_save(fd, save);
 	if (!save)
@@ -100,14 +101,3 @@ char	*get_next_line(int fd)
 	save = get_the_next(save, line);
 	return (line);
 }
-
-// int main (void)
-// {
-// 	int fd;
-	
-
-// 	fd = open("file.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-
-	
-// }

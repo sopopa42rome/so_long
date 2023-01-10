@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/10 18:27:26 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/10 21:32:04 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@
 # define DOOR_CLOSED "xpm/door_closed.xpm"
 # define COLLECT "xpm/collect.xpm"
 
+//Movements macros
+# define KEY_UP 15
+# define KEY_DOWN 30
+# define KEY_LEFT 45
+# define KEY_RIGHT 60
+# define KEY_ESC 53
+
 typedef struct img
 {	
 	int		w;
@@ -61,8 +68,8 @@ typedef struct game
 	char	**map_matrix;
 	int		height;
 	int		width;
-	int		x;
-	int		y;
+	int		pos_player_x;
+	int		pos_player_y;
 	char	*pathfile;
 	void	*mlx;
 	void	*mlx_win;
@@ -76,7 +83,7 @@ t_img		*initialize_images(t_img *img);
 int			read_and_init_map(char *pathfile, t_game_vars *game);
 int			count_rows(int fd);
 int			ft_free(t_game_vars **game);
-int			ft_close(void);
+int			ft_close(t_game_vars *game);
 
 //rendering
 void		ft_render_map(t_game_vars *game, t_img *img);
@@ -88,6 +95,9 @@ void		ft_draw_stone(t_game_vars *game, int rows, int col);
 void		ft_draw_player(t_game_vars *game, int rows, int col);
 void		ft_draw_door_closed(t_game_vars *game, int rows, int col);
 void		ft_draw_collectible(t_game_vars *game, int rows, int col);
+
+//movements and events
+int			key_press(t_game_vars *game, int keycode);
 
 //checks map structure
 int			check_extension_file(char *pathfile);
