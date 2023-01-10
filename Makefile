@@ -41,11 +41,10 @@ linux: $(OBJS)
 
 
 fclean: clean
-	$(RM) macos linux
+	$(RM) $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	$(RM) so_long
 
 re: fclean all
 

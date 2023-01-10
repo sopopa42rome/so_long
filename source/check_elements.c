@@ -6,13 +6,13 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:34:20 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/09 18:59:30 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/10 18:25:08 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_check_player(game_vars *game)
+int	ft_check_player(t_game_vars *game)
 {
 	int	r;
 	int	c;
@@ -41,7 +41,7 @@ int	ft_check_player(game_vars *game)
 		return (0);
 }
 
-int	ft_check_exit(game_vars *game)
+int	ft_check_exit(t_game_vars *game)
 {
 	int	r;
 	int	c;
@@ -68,7 +68,7 @@ int	ft_check_exit(game_vars *game)
 		return (0);
 }
 
-int	ft_check_collectible(game_vars *game)
+int	ft_check_collectible(t_game_vars *game)
 {
 	int	r;
 	int	c;

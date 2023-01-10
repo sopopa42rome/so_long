@@ -6,25 +6,26 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/09 19:31:22 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/10 18:23:44 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-game_vars	*initialize_game(char *pathfile)
+t_game_vars	*initialize_game(char *pathfile)
 {
-	game_vars	*game;
+	t_game_vars	*game;
 
 	if (check_extension_file(pathfile) != 1)
 		error_file_extension_wrong();
-	game = malloc(sizeof(game_vars));
+	game = malloc(sizeof(t_game_vars));
+	game->img = malloc(sizeof(t_img));
 	if (read_and_init_map(pathfile, game) != 1)
 		game = NULL;
 	return (game);
 }
 
-int	read_and_init_map(char *pathfile, game_vars *game)
+int	read_and_init_map(char *pathfile, t_game_vars *game)
 {
 	int	fd;
 	int	i;
@@ -46,7 +47,7 @@ int	read_and_init_map(char *pathfile, game_vars *game)
 	game->height = rows;
 	if (game->map_matrix)
 		game->width = ft_strlen(game->map_matrix[i - 1]);
-	if (!game->map_matrix || !ft_check_errors(game))
+	if (!game->map_matrix || !game->img || !ft_check_errors(game))
 		ft_free(&game);
 	return (1);
 }
@@ -67,7 +68,7 @@ int	count_rows(int fd)
 	return (i);
 }
 
-int	ft_free(game_vars **game)
+int	ft_free(t_game_vars **game)
 {	
 	int	i;
 
@@ -77,7 +78,9 @@ int	ft_free(game_vars **game)
 	while (++i < (*game)->height)
 		free((*game)->map_matrix[i]);
 	free((*game)->map_matrix);
+	free((*game)->img);
 	free(*game);
+	(*game)->img = NULL;
 	*game = NULL;
 	return (0);
 }

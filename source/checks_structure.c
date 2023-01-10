@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/09 19:00:43 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/10 18:23:44 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_extension_file(char *pathfile)
 	return (FILE_EXTENSION_WRONG);
 }
 
-int	ft_check_width(game_vars *game)
+int	ft_check_width(t_game_vars *game)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ int	ft_check_width(game_vars *game)
 	return (1);
 }
 
-int	ft_check_walls(game_vars *game)
+int	ft_check_walls(t_game_vars *game)
 {
 	int	rows;
 	int	cols;
@@ -66,7 +66,7 @@ int	ft_check_walls(game_vars *game)
 	return (1);
 }
 
-int	ft_check_errors(game_vars *game)
+int	ft_check_errors(t_game_vars *game)
 {
 	if (!game)
 		error_program_null();

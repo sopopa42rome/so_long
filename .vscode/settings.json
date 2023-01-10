@@ -1,8 +1,14 @@
 {
-    "files.associations": {
-        "libft.h": "c",
-        "mlx.h": "c",
-        "get_next_line.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "enabled"
+	"makefile.extensionOutputFolder": "./.vscode",
+	"files.associations": {
+		"inttypes.h": "c",
+		"stdint.h": "c",
+		"stdio.h": "c",
+		"stdlib.h": "c",
+		"mlx.h": "c",
+		"__mutex_base": "c",
+		"memory": "c",
+		"math.h": "c",
+		"fcntl.h": "c"
+	}
 }
