@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:30:36 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/10 18:23:44 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/11 15:55:28 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@ void	ft_render_map(t_game_vars *game, t_img *img)
 	int		rows;
 	int		col;
 
+	
 	rows = 0;
-	get_image_pointer(game, img);
+	if (game->render == 0)
+	{
+		get_image_pointer(game, img);
+		game->render = 1;
+	}
 	while (rows <= game->height - 1)
 	{	
 		col = 0;
