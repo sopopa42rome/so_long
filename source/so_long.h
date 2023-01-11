@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 16:47:09 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/11 21:08:04 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,16 @@ int			ft_check_collectible(t_game_vars *game);
 int			ft_check_exit(t_game_vars *game);
 
 // errors
-void		error_file_extension_wrong(void);
-void		error_bad_arguments(void);
-void		error_empty_map(void);
-void		error_irregular_map(void);
-void		error_player_inexistent(void);
-void		error_collectible_inexistent(void);
-void		error_exit_inexistent(void);
-void		error_map_not_found(void);
-void		error_incomplete_walls(void);
-void		error_program_null(void);
-void		error_img_not_assigned(void);
+int		error_file_extension_wrong(void);
+int		error_bad_arguments(void);
+int		error_empty_map(void);
+int		error_irregular_map(void);
+int		error_player_inexistent(void);
+int		error_collectible_inexistent(void);
+int		error_exit_inexistent(void);
+int		error_map_not_found(void);
+int		error_incomplete_walls(void);
+int		error_program_null(void);
+int		error_img_not_assigned(void);
 
 #endif

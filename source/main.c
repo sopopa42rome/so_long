@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 17:07:26 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/11 20:52:14 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@
 int	ft_close(t_game_vars *game)
 {
 	mlx_destroy_window(game->mlx, game->mlx_win);
-	while(game->img)
-	{
-		mlx_destroy_image(game->mlx, game->img->collect);
-		mlx_destroy_image(game->mlx, game->img->door_closed);
-		mlx_destroy_image(game->mlx, game->img->grass);
-		mlx_destroy_image(game->mlx, game->img->player);
-		mlx_destroy_image(game->mlx, game->img->stone);
-		mlx_destroy_image(game->mlx, game->img->tree);
-	}
+	mlx_destroy_image(game->mlx, game->img->collect);
+	mlx_destroy_image(game->mlx, game->img->door_closed);
+	mlx_destroy_image(game->mlx, game->img->grass);
+	mlx_destroy_image(game->mlx, game->img->player);
+	mlx_destroy_image(game->mlx, game->img->stone);
+	mlx_destroy_image(game->mlx, game->img->tree);
 	exit(0);
 }
 

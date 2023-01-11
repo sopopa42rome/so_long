@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/10 18:23:44 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/11 20:53:26 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	check_extension_file(char *pathfile)
 	char	*str;
 
 	str = ft_strchr(pathfile, '.');
-	if (ft_strncmp(str, ".ber", 4) == 0 && ft_strlen(str) == 4)
+	if(str == NULL)
+		return (FILE_EXTENSION_WRONG);
+	if (ft_strncmp(str, ".ber", 4) == 0 )
 		return (1);
 	return (FILE_EXTENSION_WRONG);
 }
