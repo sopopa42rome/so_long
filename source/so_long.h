@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:47:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 21:08:04 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:35:17 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define NO_WALLS 11
 # define GAME_NULL 12
 # define IMG_NOT_ASSIGNED 13
+# define FORBIDDEN_CHAR 14
 
 // Generic values and paths
 # define BLOCK 64
@@ -42,6 +43,7 @@
 # define TREE "xpm/albero2.xpm"
 # define STONE "xpm/stone.xpm"
 # define DOOR_CLOSED "xpm/door_closed.xpm"
+# define DOOR_OPENED "xpm/door_open.xpm"
 # define COLLECT "xpm/collect.xpm"
 
 //Movements macros
@@ -60,6 +62,7 @@ typedef struct img
 	void	*tree;
 	void	*stone;
 	void	*door_closed;
+	void	*door_opened;
 	void	*collect;
 }	t_img;
 
@@ -69,6 +72,7 @@ typedef struct game
 	char	**map_matrix;
 	int		height;
 	int		cristal;
+	int		moves;
 	int		width;
 	int		pos_x;
 	int		pos_y;
@@ -95,12 +99,13 @@ void		ft_draw_stone(t_game_vars *game, int rows, int col);
 void		ft_draw_player(t_game_vars *game, int rows, int col);
 void		ft_draw_door_closed(t_game_vars *game, int rows, int col);
 void		ft_draw_collectible(t_game_vars *game, int rows, int col);
+void		ft_draw_door_open(t_game_vars *game, int rows, int col);
 
 //movements and events
 int			key_press(int keycode, t_game_vars *game);
-int 		ft_allow_move(t_game_vars *game);
-int 		ft_denied_move(t_game_vars *game, int direction);
-int 		ft_movements_hook(t_game_vars *game, int keycode);
+int			ft_allow_move(t_game_vars *game);
+int			ft_denied_move(t_game_vars *game, int direction);
+int			ft_movements_hook(t_game_vars *game, int keycode);
 
 //checks map structure
 int			check_extension_file(char *pathfile);
@@ -110,18 +115,20 @@ int			ft_check_width(t_game_vars *game);
 int			ft_check_player(t_game_vars *game);
 int			ft_check_collectible(t_game_vars *game);
 int			ft_check_exit(t_game_vars *game);
+int			ft_check_forbidden_chars(t_game_vars *game);
 
 // errors
-int		error_file_extension_wrong(void);
-int		error_bad_arguments(void);
-int		error_empty_map(void);
-int		error_irregular_map(void);
-int		error_player_inexistent(void);
-int		error_collectible_inexistent(void);
-int		error_exit_inexistent(void);
-int		error_map_not_found(void);
-int		error_incomplete_walls(void);
-int		error_program_null(void);
-int		error_img_not_assigned(void);
+int			error_file_extension_wrong(void);
+int			error_bad_arguments(void);
+int			error_empty_map(void);
+int			error_irregular_map(void);
+int			error_player_inexistent(void);
+int			error_collectible_inexistent(void);
+int			error_exit_inexistent(void);
+int			error_map_not_found(void);
+int			error_incomplete_walls(void);
+int			error_program_null(void);
+int			error_img_not_assigned(void);
+int			error_forbidden_char(void);
 
 #endif

@@ -35,7 +35,7 @@ all: macos
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
-	$(DEBUG_LEAKS) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
+	$(CC) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
 
 linux: $(OBJS)
 	make re -C $(LIBFT)/

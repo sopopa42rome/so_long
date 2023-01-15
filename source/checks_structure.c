@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:31:21 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 20:53:26 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:30:25 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,31 @@ int	check_extension_file(char *pathfile)
 	char	*str;
 
 	str = ft_strchr(pathfile, '.');
-	if(str == NULL)
+	if (str == NULL)
 		return (FILE_EXTENSION_WRONG);
-	if (ft_strncmp(str, ".ber", 4) == 0 )
+	if (ft_strncmp(str, ".ber", 4) == 0)
 		return (1);
 	return (FILE_EXTENSION_WRONG);
+}
+
+int	ft_check_forbidden_chars(t_game_vars *game)
+{	
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->height)
+	{	
+		j = 0;
+		while (j < game->width)
+		{
+			if (ft_strchr("EPC01", game->map_matrix[i][j]) == NULL)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 int	ft_check_width(t_game_vars *game)
@@ -72,6 +92,8 @@ int	ft_check_errors(t_game_vars *game)
 {
 	if (!game)
 		error_program_null();
+	if (ft_check_forbidden_chars(game) != 1)
+		error_forbidden_char();
 	if (ft_check_width(game) != 1)
 		error_irregular_map();
 	if (ft_check_walls(game) != 1)

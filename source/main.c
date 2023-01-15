@@ -6,18 +6,11 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:12 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/15 16:28:35 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:32:11 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
- #include "so_long.h"
-
-
-		
-
-
-
+#include "so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -26,10 +19,8 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 		error_bad_arguments();
 	game = initialize_game(argv[1]);
-	//printf("game %lu\n", sizeof(game));
-	//printf("struct %lu", sizeof(t_game_vars));
 	if (!game || !game->img || !game->map_matrix)
-	 	error_program_null();
+		error_program_null();
 	game->mlx_win = mlx_new_window(game->mlx, BLOCK * game->width,
 			BLOCK * game->height, "The pirate bomb!");
 	ft_render_map(game, game->img);

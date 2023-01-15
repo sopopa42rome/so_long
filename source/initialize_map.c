@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/15 16:23:47 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:31:18 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ t_game_vars	*initialize_game(char *pathfile)
 	if (check_extension_file(pathfile) != 1)
 		error_file_extension_wrong();
 	game = malloc(sizeof(t_game_vars));
-	//game = malloc(sizeof(t_game_vars));
 	game->img = malloc(sizeof(t_img));
 	game->render = 0;
+	game->moves = 0;
 	game->mlx = mlx_init();
 	if (read_and_init_map(pathfile, game) != 1)
 		game = NULL;
@@ -83,7 +83,6 @@ int	ft_free(t_game_vars *game)
 		free(game->map_matrix[i]);
 		game->map_matrix[i] = NULL;
 	}
-	//ft_close(game);
 	free(game->map_matrix);
 	free(game->img);
 	free(game);
