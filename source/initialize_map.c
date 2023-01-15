@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:17:37 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 21:17:10 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 16:23:47 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_game_vars	*initialize_game(char *pathfile)
 	if (check_extension_file(pathfile) != 1)
 		error_file_extension_wrong();
 	game = malloc(sizeof(t_game_vars));
+	//game = malloc(sizeof(t_game_vars));
 	game->img = malloc(sizeof(t_img));
 	game->render = 0;
 	game->mlx = mlx_init();
@@ -75,15 +76,28 @@ int	ft_free(t_game_vars *game)
 	int	i;
 
 	i = -1;
+	if (!game || !game->map_matrix || !game->img)
+		return (0);
 	while (++i < game->height)
 	{
 		free(game->map_matrix[i]);
 		game->map_matrix[i] = NULL;
 	}
+	//ft_close(game);
 	free(game->map_matrix);
 	free(game->img);
 	free(game);
-	//game->img = NULL;
-	//game = NULL;
 	return (0);
+}
+
+int	ft_close(t_game_vars *game)
+{
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	mlx_destroy_image(game->mlx, game->img->collect);
+	mlx_destroy_image(game->mlx, game->img->door_closed);
+	mlx_destroy_image(game->mlx, game->img->grass);
+	mlx_destroy_image(game->mlx, game->img->player);
+	mlx_destroy_image(game->mlx, game->img->stone);
+	mlx_destroy_image(game->mlx, game->img->tree);
+	exit(0);
 }

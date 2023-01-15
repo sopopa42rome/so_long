@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:51:30 by sorin             #+#    #+#             */
-/*   Updated: 2023/01/11 20:58:59 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/15 16:26:25 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 int	error_file_extension_wrong(void)
 {
 	ft_putstr_fd("Error:\nFile extension wrong!\n", 2);
-	return (FILE_EXTENSION_WRONG);
+	exit (FILE_EXTENSION_WRONG);
 }
 
 int	error_bad_arguments(void)
 {
 	ft_putstr_fd("Error:\nWrong number of arguments!\n", 2);
-	return (BAD_NUMBER_ARGS);
+	exit (BAD_NUMBER_ARGS);
 }
 
 int	error_empty_map(void)
 {
 	ft_putstr_fd("Error:\nThe file is empty!\n", 2);
-	return (FILE_EMPTY);
+	exit (FILE_EMPTY);
 }
 
 int	error_irregular_map(void)
 {
 	ft_putstr_fd("Error:\nThe map is not rectangular!\n", 2);
-	return (NOT_RECTANGULAR);
+	exit (NOT_RECTANGULAR);
 }
 
 int	error_player_inexistent(void)
 {
 	ft_putstr_fd("Error:\nToo much players or inexistent!\n", 2);
-	return (NO_PLAYER);
+	exit (NO_PLAYER);
 }

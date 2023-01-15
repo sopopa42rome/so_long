@@ -20,7 +20,8 @@ SRCS = ./source/main.c \
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 LIBC	= ar -rcs
-CC		= gcc -g
+CC		= gcc
+DEBUG_LEAKS	= gcc -g -fsanitize=address
 FLAGS	= -Wall -Wextra -Werror
 INCS	= ./
 
@@ -34,7 +35,7 @@ all: macos
 
 macos: $(OBJS)
 	make re -C $(LIBFT)/
-	$(CC) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
+	$(DEBUG_LEAKS) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB) $(SRCS) -o $(NAME)
 
 linux: $(OBJS)
 	make re -C $(LIBFT)/

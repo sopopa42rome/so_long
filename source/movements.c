@@ -6,7 +6,7 @@
 /*   By: sopopa <sopopa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:24:11 by sopopa            #+#    #+#             */
-/*   Updated: 2023/01/11 16:41:16 by sopopa           ###   ########.fr       */
+/*   Updated: 2023/01/11 21:32:06 by sopopa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	key_press(int keycode, t_game_vars *game)
 {
-	if (keycode == KEY_ESC)
-		ft_close(game);
+	// if (keycode == KEY_ESC)
+	// 	ft_close(game);
 	if ((keycode == KEY_DOWN || keycode == KEY_UP) && game->render)
 		ft_movements_hook(game, keycode);
 	if ((keycode == KEY_LEFT || keycode == KEY_RIGHT) && game->render )
